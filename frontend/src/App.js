@@ -6,6 +6,7 @@ import Intro from "./components/Intro";
 
 class App extends Component {
   state = {
+    editShow: false,
     posts: [
       {
         id: 1,
@@ -33,6 +34,17 @@ class App extends Component {
       }
     ]
   };
+
+  // Edit Modal - Show
+  handleEditShow = () => {
+    this.setState({ editShow: true });
+  };
+
+  // Edit Modal - Close
+  handleEditClose = () => {
+    this.setState({ editShow: false });
+  };
+
   render() {
     return (
       <React.Fragment>
@@ -40,7 +52,12 @@ class App extends Component {
         <div className="container">
           <Intro />
           <main className="container">
-            <PostList posts={this.state.posts} />
+            <PostList
+              posts={this.state.posts}
+              handleEditShow={this.handleEditShow}
+              handleEditClose={this.handleEditClose}
+              editShow={this.state.editShow}
+            />
           </main>
         </div>
       </React.Fragment>

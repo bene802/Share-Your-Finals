@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Edit from "../components/Edit";
+import Button from "react-bootstrap/Button";
 
 class Post extends Component {
   render() {
@@ -18,7 +18,10 @@ class Post extends Component {
           <p className="card-text mb-auto">{this.props.post.content}</p>
         </div>
         <span className="card-right flex-auto d-none d-md-block mr-2 mt-3">
-          <button className="fas fa-edit btn btn-primary mr-2 mb-2">
+          <button
+            className="fas fa-edit btn btn-primary mr-2 mb-2"
+            onClick={() => this.props.handleEditShow()}
+          >
             {" "}
             Edit
           </button>
