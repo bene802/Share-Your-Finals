@@ -63,7 +63,7 @@ def get_all_posts():
         output['id'] = post.id
         output['user_id'] = post.user_id
         output['title'] = post.title
-        output['data'] = post.date
+        output['date'] = post.date
         output['content'] = post.content
         outputs.append(output)
     return jsonify({'posts': outputs}), 200
@@ -78,7 +78,7 @@ def get_user_posts(user_id):
         output['id'] = post.id
         output['user_id'] = post.user_id
         output['title'] = post.title
-        output['data'] = post.date
+        output['date'] = post.date
         output['content'] = post.content
         outputs.append(output)
     return jsonify({'posts': outputs}), 200
