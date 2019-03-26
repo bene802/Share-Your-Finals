@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Edit from "../components/Edit";
 
 class Post extends Component {
   render() {
