@@ -16,7 +16,7 @@ class Post extends Component {
           <div className="mb-1 text-muted">{this.props.post.date}</div>
           <p className="card-text mb-auto">{this.props.post.content}</p>
         </div>
-        <span class="card-right flex-auto d-none d-md-block mr-2 mt-3">
+        <span className="card-right flex-auto d-none d-md-block mr-2 mt-3">
           <button className="fas fa-edit btn btn-primary mr-2 mb-2">
             {" "}
             Edit
