@@ -6,7 +6,17 @@ import Intro from "./components/Intro";
 
 class App extends Component {
   state = {
-    editShow: false,
+    edit: {
+      edit_show: false,
+      edit_post: {
+        id: 1,
+        user_id: 1,
+        author: "Mike",
+        title: "title1",
+        date: "2019-10-10",
+        content: "Made by User1"
+      }
+    },
     posts: [
       {
         id: 1,
@@ -36,13 +46,29 @@ class App extends Component {
   };
 
   // Edit Modal - Show
-  handleEditShow = () => {
-    this.setState({ editShow: true });
+  handleEditShow = post => {
+    let edit = this.state.edit;
+    edit.edit_post = post;
+    edit.edit_show = true;
+    this.setState({ edit });
   };
 
   // Edit Modal - Close
   handleEditClose = () => {
-    this.setState({ editShow: false });
+    let edit = this.state.edit;
+    edit.edit_show = false;
+    this.setState({ edit });
+  };
+
+  handleEditSave = post => {
+    console.log(post);
+    let posts = [...this.state.posts];
+    const index = posts.indexOf(post);
+    posts[index] = post;
+    this.setState({ posts });
+    let edit = this.state.edit;
+    edit.edit_show = false;
+    this.setState({ edit });
   };
 
   render() {
@@ -54,9 +80,10 @@ class App extends Component {
           <main className="container">
             <PostList
               posts={this.state.posts}
+              edit={this.state.edit}
               handleEditShow={this.handleEditShow}
               handleEditClose={this.handleEditClose}
-              editShow={this.state.editShow}
+              handleEditSave={this.handleEditSave}
             />
           </main>
         </div>

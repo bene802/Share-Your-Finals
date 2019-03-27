@@ -13,13 +13,14 @@ class PostList extends Component {
               key={post.id}
               post={post}
               handleEditShow={this.props.handleEditShow}
-              editShow={this.props.editShow}
+              edit={this.props.edit}
             />
           ))}
         </div>
         <EditModal
-          show={this.props.editShow}
+          edit={this.props.edit}
           handleEditClose={this.props.handleEditClose}
+          handleEditSave={this.props.handleEditSave}
         />
       </React.Fragment>
     );

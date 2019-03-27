@@ -20,7 +20,7 @@ class Post extends Component {
         <span className="card-right flex-auto d-none d-md-block mr-2 mt-3">
           <button
             className="fas fa-edit btn btn-primary mr-2 mb-2"
-            onClick={() => this.props.handleEditShow()}
+            onClick={() => this.props.handleEditShow(this.props.post)}
           >
             {" "}
             Edit
