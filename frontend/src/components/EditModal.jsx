@@ -21,12 +21,14 @@ class EditModal extends Component {
   }
 
   titleHandler = event => {
-    const post = this.state.post;
+    const post = {};
+    Object.assign(post, this.state.post);
     post.title = event.target.value;
     this.setState({ post });
   };
   contentHandler = event => {
-    let post = this.state.post;
+    const post = {};
+    Object.assign(post, this.state.post);
     post.content = event.target.value;
     this.setState({ post });
   };

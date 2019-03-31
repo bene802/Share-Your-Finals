@@ -170,14 +170,15 @@ def login():
 
 @app.route('/test', methods=['GET'])
 def test():
-    users = User.query.all()
-    outputs = []
-    for user in users:
-        output = {}
-        output['username'] = user.username
-        output['password'] = user.password
-        outputs.append(output)
-    return jsonify({"users": outputs})
+    return "hello from backend"
+    # users = User.query.all()
+    # outputs = []
+    # for user in users:
+    #     output = {}
+    #     output['username'] = user.username
+    #     output['password'] = user.password
+    #     outputs.append(output)
+    # return jsonify({"users": outputs})
     # db.session.query(User).delete()
     # db.session.commit()
     # return ''

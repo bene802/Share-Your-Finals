@@ -3,6 +3,8 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import PostList from "./components/PostList";
 import Intro from "./components/Intro";
+import { getAllPosts, test } from "./components/FunctionList";
+import axios from "axios";
 
 class App extends Component {
   state = {
@@ -44,6 +46,22 @@ class App extends Component {
       }
     ]
   };
+  componentWillMount() {
+    console.log("start");
+    this.getAll();
+  }
+
+  getAll = () => {
+    console.log("getAll");
+    axios
+      .get("http://127.0.0.1:5000/posts", {
+        headers: { "Content-Type": "application/json" }
+      })
+      .then(function(response) {
+        console.log(response);
+        console.log(response.data);
+      });
+  };
 
   // Edit Modal - Show
   handleEditShow = post => {
@@ -61,10 +79,13 @@ class App extends Component {
   };
 
   handleEditSave = post => {
-    console.log(post);
     let posts = [...this.state.posts];
-    const index = posts.indexOf(post);
-    posts[index] = post;
+    for (let p of posts) {
+      if (p.id == post.id) {
+        Object.assign(p, post);
+        break;
+      }
+    }
     this.setState({ posts });
     let edit = this.state.edit;
     edit.edit_show = false;
